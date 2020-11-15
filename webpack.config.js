@@ -14,7 +14,7 @@ const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' 
 const TerserWebpackPlugin = require( 'terser-webpack-plugin' );
 
 module.exports = {
-	devtool: 'source-map',
+	devtool: 'none',
 	performance: { hints: false },
 
 	entry: path.resolve( __dirname, 'src', 'ckeditor.js' ),
@@ -49,7 +49,7 @@ module.exports = {
 			// UI language. Language codes follow the https://en.wikipedia.org/wiki/ISO_639-1 format.
 			// When changing the built-in language, remember to also change it in the editor's configuration (src/ckeditor.js).
 			language: 'zh-cn',
-			additionalLanguages: 'all'
+			additionalLanguages: []
 		} ),
 		new webpack.BannerPlugin( {
 			banner: bundler.getLicenseBanner(),

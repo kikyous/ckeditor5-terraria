@@ -27,7 +27,13 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
+import MyUploadAdapter from './MyUploadAdapter'
 
+function MyCustomUploadAdapterPlugin( editor ) {
+	editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+	  return new MyUploadAdapter( loader );
+	};
+}
 class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
@@ -55,7 +61,8 @@ Editor.builtinPlugins = [
 	PasteFromOffice,
 	SimpleUploadAdapter,
 	Table,
-	TableToolbar
+	TableToolbar,
+	MyCustomUploadAdapterPlugin
 ];
 
 export default Editor;
