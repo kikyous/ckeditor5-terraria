@@ -13,6 +13,7 @@ import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
@@ -27,14 +28,14 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
-import MyUploadAdapter from './MyUploadAdapter'
+import MyUploadAdapter from './upload-adapter'
 
-function MyCustomUploadAdapterPlugin( editor ) {
-	editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
-	  return new MyUploadAdapter( loader );
+function MyCustomUploadAdapterPlugin(editor) {
+	editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+		return new MyUploadAdapter(loader);
 	};
 }
-class Editor extends ClassicEditor {}
+class Editor extends ClassicEditor { }
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
@@ -48,6 +49,7 @@ Editor.builtinPlugins = [
 	FontSize,
 	Heading,
 	Image,
+	ImageResize,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
