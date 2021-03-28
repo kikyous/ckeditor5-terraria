@@ -29,6 +29,7 @@ import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleu
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import MyUploadAdapter from './upload-adapter'
+import SourceEditor from './source-editor'
 
 function MyCustomUploadAdapterPlugin(editor) {
 	editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
@@ -64,7 +65,8 @@ Editor.builtinPlugins = [
 	SimpleUploadAdapter,
 	Table,
 	TableToolbar,
-	MyCustomUploadAdapterPlugin
+	MyCustomUploadAdapterPlugin,
+	SourceEditor
 ];
 
 export default Editor;
